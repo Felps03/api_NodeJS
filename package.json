@@ -1,0 +1,28 @@
+{
+    "name": "api_nodejs",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Felps03/api_NodeJS.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Felps03/api_NodeJS/issues"
+    },
+    "homepage": "https://github.com/Felps03/api_NodeJS#readme",
+    "dependencies": {
+        "body-parser": "1.18.3",
+        "express": "4.16.3",
+        "express-validator": "^5.3.1"
+    },
+    "devDependencies": {
+        "nodemon": "1.18.4"
+    }
+}
