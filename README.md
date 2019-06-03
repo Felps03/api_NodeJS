@@ -35,3 +35,18 @@ npm install method-override@3.0.0 --save-exact
 ```
 npm install --save express-validator
 ```
+
+
+
+CREATE TABLE `pessoas;` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `nome` varchar(255) NOT NULL,
+    `nascimento` DATE NOT NULL,
+    `cpf` varchar(14) NOT NULL,
+    `peso` decimal(3,1),
+    `altura` decimal(3,2,
+    `descricao` text,
+    `senha` varchar(255),
+    PRIMARY KEY (id)
+);
+

@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator/check');
 
 const PessoaDao = require('../infra/pessoa-dao');
-const db = require('../../config/database');
+const connection = require('../infra/connectionFactory')();
 
 class PessoaControlador {
 
@@ -13,7 +13,11 @@ class PessoaControlador {
 
     lista() {
         return (req, resp) => {
-            resp.send("ok");
+
+            const pessoaDao = new PessoaDao(connection);
+            pessoaDao.lista((error, result) => {
+                resp.send(result);
+            });
         }
     }
 
