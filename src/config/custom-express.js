@@ -1,14 +1,15 @@
 const express = require('express');
-app = express();
-
+const app = express();
 const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+let expressValidator = require('express-validator');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use(expressValidator());
 
 const rotas = require('../app/rotas/rotas.js');
 rotas(app);
-
 
 app.use((req, resp, next) => {
     return resp.status(404).send('404');
