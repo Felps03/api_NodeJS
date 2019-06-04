@@ -37,16 +37,16 @@ npm install --save express-validator
 ```
 
 
-
-CREATE TABLE `pessoas;` (
+```
+CREATE TABLE `pessoas` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `nome` varchar(255) NOT NULL,
     `nascimento` DATE NOT NULL,
     `cpf` varchar(14) NOT NULL,
-    `peso` decimal(3,1),
-    `altura` decimal(3,2,
+    `peso` decimal(5,2),
+    `altura` decimal(3,2),
     `descricao` text,
     `senha` varchar(255),
     PRIMARY KEY (id)
 );
-
+```
