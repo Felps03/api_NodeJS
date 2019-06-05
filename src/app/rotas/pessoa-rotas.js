@@ -11,12 +11,10 @@ module.exports = (app) => {
 
     app.get(rotasPessoa.edicao, pessoaControlador.buscaPessoa());
 
-    app.post(rotasPessoa.cadastro, pessoaControlador.cadastro());
+    app.post(rotasPessoa.cadastro, Pessoa.validacoes(), pessoaControlador.cadastro());
 
     app.put(rotasPessoa.edicao, pessoaControlador.edita());
 
     app.delete(rotasPessoa.deletar, pessoaControlador.remove());
 
 }
-
-//app.get(rotasPessoa.insere, Pessoa.validacoes(), pessoaControlador.insere());

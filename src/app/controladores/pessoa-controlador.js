@@ -26,16 +26,25 @@ class PessoaControlador {
     cadastro() {
         return (req, resp) => {
             const pessoaDao = new PessoaDao(connection);
+            const erros = validationResult(req);
+            let erroLista = [];
+
+            if (!erros.isEmpty()) {
+                erros.array().forEach((valor, chave) => erroLista.push(valor['msg']));
+                return resp.status(400).send(erroLista);
+            }
+
+
             pessoaDao.cadastro(req.body, (error, result) => {
-                //resp.location(`/pessoas/pessoa/${result.insertId}`);
+                resp.location(`/pessoas/pessoa/${result.insertId}`);
                 let response = {
                     pessoa: req.body,
                     links: [{
-                        //href: `http://localhost:3000//pessoas/pessoa/${result.insertId}`,
+                        href: `http://localhost:3000//pessoas/pessoa/${result.insertId}`,
                         rel: `Deletar`,
                         method: `DELETE`
                     }, {
-                        //href: `http://localhost:3000//pessoas/pessoa/${result.insertId}`,
+                        href: `http://localhost:3000//pessoas/pessoa/${result.insertId}`,
                         rel: `Editar`,
                         method: `PUT`
                     }]
