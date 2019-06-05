@@ -1,3 +1,5 @@
+const MD5 = require('md5');
+
 class PessoaDao {
     constructor(connection) {
         this._connection = connection;
@@ -8,7 +10,7 @@ class PessoaDao {
     }
 
     cadastro(pessoa, callback) {
-        this._connection.query('INSERT INTO pessoas (nome, nascimento, cpf, peso, altura, descricao, senha) VALUES (?, ?, ?, ?, ?, ?, ?)', [pessoa.nome, pessoa.nascimento, pessoa.cpf, pessoa.peso, pessoa.altura, pessoa.descricao, pessoa.senha], callback);
+        this._connection.query('INSERT INTO pessoas (nome, nascimento, cpf, peso, altura, descricao, senha) VALUES (?, ?, ?, ?, ?, ?, ?)', [pessoa.nome, pessoa.nascimento, pessoa.cpf, pessoa.peso, pessoa.altura, pessoa.descricao, MD5(pessoa.senha)], callback);
     }
 
     atualiza(pessoa, id, callback) {

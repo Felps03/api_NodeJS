@@ -34,7 +34,6 @@ class PessoaControlador {
                 return resp.status(400).send(erroLista);
             }
 
-
             pessoaDao.cadastro(req.body, (error, result) => {
                 resp.location(`/pessoas/pessoa/${result.insertId}`);
                 let response = {
