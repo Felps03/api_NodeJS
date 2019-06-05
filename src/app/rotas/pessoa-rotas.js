@@ -13,7 +13,7 @@ module.exports = (app) => {
 
     app.post(rotasPessoa.cadastro, Pessoa.validacoes(), pessoaControlador.cadastro());
 
-    app.put(rotasPessoa.edicao, pessoaControlador.edita());
+    app.put(rotasPessoa.edicao, Pessoa.validacoes(), pessoaControlador.edita());
 
     app.delete(rotasPessoa.deletar, pessoaControlador.remove());
 

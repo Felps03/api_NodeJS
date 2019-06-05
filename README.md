@@ -38,6 +38,10 @@ npm install --save express-validator
 
 
 ```
+mysql -u root -p -D testeApi
+```
+
+```
 CREATE TABLE `pessoas` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `nome` varchar(255) NOT NULL,
@@ -49,4 +53,22 @@ CREATE TABLE `pessoas` (
     `senha` varchar(255),
     PRIMARY KEY (id)
 );
+```
+
+```
+CREATE TABLE `produtos` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `nome` varchar(255) NOT NULL,
+    `preco` decimal(7,2),
+    `descricao` text,
+    `categoria` varchar(255),
+    `cor` varchar(255) ,
+    PRIMARY KEY (id)
+);
+```
+
+
+```
+INSERT INTO produtos (nome, preco, descricao, categoria, cor) VALUES ("Smart TV", 9.8, "xxxxxx", "xxxxxxxx", "azul");
+
 ```

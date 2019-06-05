@@ -10,11 +10,11 @@ class PessoaDao {
     }
 
     cadastro(pessoa, callback) {
-        this._connection.query('INSERT INTO pessoas (nome, nascimento, cpf, peso, altura, descricao, senha) VALUES (?, ?, ?, ?, ?, ?, ?)', [pessoa.nome, pessoa.nascimento, pessoa.cpf, pessoa.peso, pessoa.altura, pessoa.descricao, MD5(pessoa.senha)], callback);
+        this._connection.query('INSERT INTO pessoas (nome, nascimento, cpf, peso, altura, descricao, senha) VALUES (?, ?, ?, ?, ?, ?, ?)', [pessoa.nome, pessoa.nascimento, pessoa.cpf, pessoa.peso, pessoa.altura, pessoa.descricao, MD5(pessoa.senha + 'compasso')], callback);
     }
 
     atualiza(pessoa, id, callback) {
-        this._connection.query('UPDATE pessoas SET nome = ?, nascimento = ?, cpf = ?, peso = ?, altura = ?, descricao = ?, senha = ? WHERE id = ?', [pessoa.nome, pessoa.nascimento, pessoa.cpf, pessoa.peso, pessoa.altura, pessoa.descricao, pessoa.senha, id], callback);
+        this._connection.query('UPDATE pessoas SET nome = ?, nascimento = ?, cpf = ?, peso = ?, altura = ?, descricao = ?, senha = ? WHERE id = ?', [pessoa.nome, pessoa.nascimento, pessoa.cpf, pessoa.peso, pessoa.altura, pessoa.descricao, MD5(pessoa.senha + 'compasso'), id], callback);
     }
 
     buscaPorId(id, callback) {
